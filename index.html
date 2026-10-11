@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Slime Runes — A World of Magic and Mystery</title>
 <meta name="description" content="Discover a peaceful yet mysterious fantasy world filled with magical runes, forgotten lands, hidden treasures, and endless possibilities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================
    1. CSS VARIABLES AND RESET
@@ -27,7 +30,7 @@
   --border-w: 2px;
   --content-w: 1320px;
 
-  --font-pixel: "Press Start 2P", "Silkscreen", "Courier New", ui-monospace, monospace;
+  --font-pixel: "Pixelify Sans", "Silkscreen", "Press Start 2P", "Courier New", monospace;
   --font-body: "Trebuchet MS", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
 }
 
@@ -58,17 +61,18 @@ h1, h2, h3 {
   letter-spacing: 0.02em;
 }
 h1 { font-size: clamp(2rem, 6vw, 4rem); }
-h2 { font-size: clamp(1.25rem, 3vw, 2rem); }
-h3 { font-size: 0.85rem; color: var(--cyan); }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.9rem); }
+h3 { font-size: 1.1rem; color: var(--text); letter-spacing: 0.05em; }
 p { margin: 0; color: var(--text-soft); }
 
 .container { width: min(100% - 2rem, var(--content-w)); margin-inline: auto; }
 .section { padding-block: var(--space-5); }
 .eyebrow {
   margin-bottom: var(--space-2);
-  font-family: var(--font-pixel);
-  font-size: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
   line-height: 1.8;
+  letter-spacing: 0.25em;
   color: var(--cyan);
   text-transform: uppercase;
 }
@@ -78,19 +82,20 @@ p { margin: 0; color: var(--text-soft); }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
-  padding: 0.8rem 1.4rem;
+  min-height: 52px;
+  padding: 0.8rem 1.8rem;
   border: var(--border-w) solid var(--cyan);
   font-family: var(--font-pixel);
-  font-size: 0.65rem;
+  font-weight: 700;
+  font-size: 1.05rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: background-color 0.15s, color 0.15s;
 }
-.btn-primary { background: var(--cyan); color: var(--bg-main); }
+.btn-primary { background: var(--cyan); color: var(--bg-main); box-shadow: 0 0 14px rgba(72,217,245,0.45); }
 .btn-primary:hover { background: var(--text); border-color: var(--text); }
-.btn-ghost { background: transparent; color: var(--cyan); }
+.btn-ghost { background: var(--bg-main); color: var(--cyan); border-color: var(--border); }
 .btn-ghost:hover { background: var(--bg-secondary); }
 
 /* Image frame + CSS placeholder shown while an asset is missing */
@@ -142,9 +147,8 @@ p { margin: 0; color: var(--text-soft); }
   display: block;
   padding: 0.4rem 0.1rem;
   border-bottom: 2px solid transparent;
-  font-family: var(--font-pixel);
-  font-size: 0.6rem;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
   color: var(--text-soft);
 }
 .nav-links a:hover { color: var(--text); }
@@ -157,12 +161,13 @@ p { margin: 0; color: var(--text-soft); }
 .hero-bg { position: absolute; top: 0; right: 0; bottom: 0; width: 68%; border: 0; }
 .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg-main) 0%, rgba(9,19,41,0.55) 18%, rgba(9,19,41,0) 40%); }
 .hero-content { position: relative; z-index: 1; padding-block: var(--space-4); }
-.hero-text { max-width: 480px; }
+.hero-text { max-width: 520px; }
 .hero h1 { margin-bottom: var(--space-3); }
-.hero-title { width: min(100%, 390px); height: auto; }
-.hero .lead { font-size: 0.95rem; max-width: 40ch; }
+.hero-title { width: min(100%, 400px); height: auto; }
+.hero .lead { font-size: 1.05rem; max-width: 40ch; color: var(--text); }
+.hero-bg img { object-position: 72% center; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
-.hero-tags { margin-top: var(--space-3); font-family: var(--font-pixel); font-size: 0.55rem; line-height: 1.8; color: var(--text-soft); text-transform: uppercase; }
+.hero-tags { margin-top: var(--space-3); font-family: var(--font-body); font-size: 0.8rem; letter-spacing: 0.15em; line-height: 1.8; color: var(--text-soft); text-transform: uppercase; }
 
 /* ==========================================================
    5. FEATURES  (icon left, text right, thin separators)
@@ -171,7 +176,7 @@ p { margin: 0; color: var(--text-soft); }
 .feature-list { display: grid; grid-template-columns: repeat(4, 1fr); }
 .feature { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3); border-left: 1px solid var(--border); }
 .feature:first-child { border-left: 0; padding-left: 0; }
-.feature .frame { flex: none; width: 88px; height: 88px; border-width: 1px; }
+.feature .frame { flex: none; width: 104px; height: 104px; border: 0; background: none; }
 .feature p { margin-top: 0.35rem; font-size: 0.9rem; line-height: 1.5; }
 
 /* ==========================================================
@@ -181,8 +186,8 @@ p { margin: 0; color: var(--text-soft); }
 .world-bg { position: absolute; top: 0; right: 0; bottom: 0; width: 74%; border: 0; }
 .world-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--bg-main) 0%, rgba(9,19,41,0) 22%); }
 .world-content { position: relative; z-index: 1; }
-.world-text { max-width: 320px; }
-.world .lead { font-size: 0.95rem; margin-top: var(--space-2); }
+.world-text { max-width: 400px; }
+.world .lead { font-size: 1rem; margin-top: var(--space-2); }
 .world .btn { margin-top: var(--space-3); }
 
 /* Lore / Gameplay / Roadmap anchors (short intro blocks) */
@@ -271,7 +276,7 @@ p { margin: 0; color: var(--text-soft); }
     <div class="container hero-content">
       <div class="hero-text">
         <p class="eyebrow">A world of magic and mystery</p>
-        <h1><img class="hero-title" src="assets/images/slime-title.png" alt="Slime Runes" width="390" height="180"></h1>
+        <h1><img class="hero-title" src="assets/images/slime-title.png" alt="Slime Runes" width="720" height="332"></h1>
         <p class="lead">Discover a peaceful yet mysterious fantasy world filled with magical runes, forgotten lands, hidden treasures, and endless possibilities.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#world">Enter the World</a>
